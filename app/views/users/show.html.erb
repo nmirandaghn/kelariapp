@@ -1,0 +1,16 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+        <%= @user.last_name %>
+      </h1>
+      <h2><%= @user.user_name %></h2>
+      <h2><%= @user.email %></h2>
+      <h2><%= @user.admin? %></h2>
+      <h2><%= @user.active? %></h2>
+      <h2><%= @user.password_expires? %></h2>
+      <h2><%= @user.last_activity %></h2>
+    </section>
+  </aside>
+</div>
