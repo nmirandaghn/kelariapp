@@ -1,3 +1,5 @@
+DEFAULT_PASSWORD = 'inicio'
+
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
@@ -9,8 +11,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.password = DEFAULT_PASSWORD
+    @user.password_confirmation = DEFAULT_PASSWORD
     if @user.save
-      # Handle a successful save.
+      flash[:success] = 'User was succesfully saved'
+      redirect_to @user
     else
       render 'new'
     end

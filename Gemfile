@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem 'rails-controller-testing'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
