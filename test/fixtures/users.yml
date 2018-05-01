@@ -19,3 +19,10 @@
 #   active: false
 #   last_activity: 2018-04-21 20:33:37
 #   password_expires: false
+
+michael:
+  user_name: mexample
+  name: Michael
+  last_name:  Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>

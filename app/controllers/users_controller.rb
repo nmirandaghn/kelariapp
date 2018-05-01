@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.active = true
     @user.password = DEFAULT_PASSWORD
     @user.password_confirmation = DEFAULT_PASSWORD
     if @user.save
