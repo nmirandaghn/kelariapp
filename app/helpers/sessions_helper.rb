@@ -22,6 +22,7 @@ module SessionsHelper
         @current_user = user
       end
     end
+    update_user_activity @current_user
   end
 
   # Returns true if the user is logged in, false otherwise.
@@ -40,6 +41,15 @@ module SessionsHelper
   def log_out
     forget(current_user)
     session.delete(:user_id)
+    update_user_activity @current_user
     @current_user = nil
+  end
+
+  # Update last activity of user
+  def update_user_activity(user)
+    return if user.nil?
+    user.last_activity = Time.current
+    user.save
+    user
   end
 end
