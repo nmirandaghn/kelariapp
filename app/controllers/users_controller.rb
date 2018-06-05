@@ -1,4 +1,4 @@
-DEFAULT_PASSWORD = 'inicio'.freeze
+DEFAULT_PASSWORD = 'foobar'.freeze
 
 class UsersController < ApplicationController
   before_action :logged_in_user
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def reset
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
     @user.password = DEFAULT_PASSWORD
     @user.password_confirmation = DEFAULT_PASSWORD
 

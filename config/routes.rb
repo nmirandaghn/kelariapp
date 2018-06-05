@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/edit'
+
   get 'sessions/new'
 
   root 'welcome#index'
@@ -8,11 +10,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   # post '/reset', to: 'users#reset'
+  # post '/reset/:id', to: 'users#reset'
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :users do
     get 'change_password'
     post 'change_password'
-    post '/reset', to: 'users#reset'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
