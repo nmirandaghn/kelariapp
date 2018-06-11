@@ -3,7 +3,7 @@ DEFAULT_PASSWORD = 'foobar'.freeze
 class UsersController < ApplicationController
   before_action :logged_in_user
   before_action :administrator
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -58,5 +58,3 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
 end
-
-#https://www.sitepoint.com/handle-password-and-email-changes-in-your-rails-api/
