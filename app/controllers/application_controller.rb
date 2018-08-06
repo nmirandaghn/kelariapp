@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+
+  def correct_user(id)
+    user = User.find(id)
+    redirect_to(root_url) unless user == current_user || current_user.admin?
+  end
 end

@@ -22,7 +22,7 @@ module SessionsHelper
         @current_user = user
       end
     end
-    update_user_activity(user)
+    update_user_activity(@current_user) if @current_user
   end
 
   # Returns true if the user is logged in, false otherwise.

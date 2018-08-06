@@ -2,7 +2,8 @@ DEFAULT_PASSWORD = 'foobar'.freeze
 
 class UsersController < ApplicationController
   before_action :logged_in_user
-  before_action :administrator
+  before_action :self_user, only: [:show]
+  before_action :administrator, only: [:index, :new, :create]
 
   def show
     @user = User.find(params[:id])
@@ -41,9 +42,10 @@ class UsersController < ApplicationController
 
   private
 
-  def correct_user
-    @user = User.find(params[:user_id])
-    redirect_to(root_url) unless @user == current_user
+  def self_user
+    # @user = User.find(params[:id])
+    # redirect_to(root_url) unless @user == current_user || current_user.admin?
+    correct_user(params[:id])
   end
 
   def user_params

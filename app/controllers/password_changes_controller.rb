@@ -14,10 +14,9 @@ class PasswordChangesController < ApplicationController
     end
     @user.password = user_params[:password]
     @user.password_confirmation = user_params[:password_confirmation]
-    if @user.save
-      flash[:success] = 'Password was succesfully changed'
-      redirect_to root_url
-    end
+    return unless @user.save
+    flash[:success] = 'Password was succesfully changed'
+    redirect_to root_url
   end
 
   private
